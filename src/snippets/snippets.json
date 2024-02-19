@@ -1,0 +1,115 @@
+{
+    "Typescript UseEffect": {
+        "key": "useEffect",
+        "prefix": "ue",
+        "body": [
+            "useEffect(() => {",
+            "    $0",
+            "}, [${1:dependencies}]);"
+        ],
+        "description": "Creates a useEffect hook"
+    },
+    "Typescript UseState": {
+        "key": "useState",
+        "prefix": "us",
+        "body": [
+            "const [${1:state}, set${2:State}] = useState<${3:Type}>(${4:initialState});"
+        ],
+        "description": "Creates a useState hook"
+    },
+    "Typescript React Arrow Function": {
+        "key": "arrowFunction",
+        "prefix": "raf",
+        "description": "Creates a React component class with ES7 module system and TypeScript interfaces",
+        "body": [
+            "const ${1:functionName} = ():${2:returnType} => {",
+            "\t$0",
+            "}"
+        ],
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
+    },
+    "API Request": {
+        "key": "apiRequest",
+        "prefix": "apiRequest",
+        "body": [
+            "export const ${1:functionName} = async (): Promise<ApiResponseData<${2:responseType}>> => {",
+            "    try {",
+            "        // Set up the API Call Config",
+            "        const config: AxiosRequestConfig = {",
+            "            method: '${3:GET}',",
+            "            url: '${4:API_URL}',",
+            "            headers: {},",
+            "            data: { },",
+            "        };",
+            "",
+            "        // Make API Call",
+            "        const response = await axios.request<ApiResponseData<${2:responseType}>>(config);",
+            "        return response.data;",
+            "    } catch (error: any) {",
+            "        error.response.data.status = false;",
+            "        return error.response;",
+            "    }",
+            "};"
+        ],
+        "description": "Creates a TypeScript function for making an API request"
+    },
+    "API Request Promise": {
+        "key": "apiRequestPromise",
+        "prefix": "apiRequestPromise",
+        "body": [
+            "${1:apiRequestName}(${2:parameters})",
+            "\t.then((response: ApiResponseData<${3:responseType}>) => {",
+            "\t\t// If the token is valid then Set the User",
+            "\t\tif (response.status) {",
+            "\t\t\t$0",
+            "\t\t} else {",
+            "\t\t\t",
+            "\t\t}",
+            "\t})",
+            "\t.catch((error) => {",
+            "\t\tconsole.log(error);",
+            "\t\tShowToast('Session Expired', ToastType.ERROR);",
+            "\t});"
+        ],
+        "description": "Creates an API request promise chain with error handling"
+    },
+    "Map Function": {
+        "key": "map",
+        "prefix": "map",
+        "body": [
+            "${1:array}.map((${2:item}) => {",
+            "\treturn ${3:item};",
+            "})"
+        ],
+        "description": "Creates a map function"
+    },
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2:// Your code here}",
+            "}"
+        ],
+        "description": "Creates an if statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2:// Code to execute if condition is true}",
+            "} else {",
+            "\t${3:// Code to execute if condition is false}",
+            "}"
+        ],
+        "description": "Creates an if-else statement"
+    },
+    "Conditional Expression with Logical AND": {
+        "prefix": "and",
+        "body": [
+            "{ ${1:condition} && (",
+            "\t${2:// Code to execute if condition is true}",
+            ")}"
+        ],
+        "description": "Creates a conditional expression with logical AND"
+    }
+}

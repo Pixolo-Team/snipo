@@ -1,6 +1,5 @@
 {
     "Typescript UseEffect": {
-        "key": "useEffect",
         "prefix": "ue",
         "body": [
             "useEffect(() => {",
@@ -10,7 +9,6 @@
         "description": "Creates a useEffect hook"
     },
     "Typescript UseState": {
-        "key": "useState",
         "prefix": "us",
         "body": [
             "const [${1:state}, set${2:State}] = useState<${3:Type}>(${4:initialState});"
@@ -18,7 +16,6 @@
         "description": "Creates a useState hook"
     },
     "Typescript React Arrow Function": {
-        "key": "arrowFunction",
         "prefix": "raf",
         "description": "Creates a React component class with ES7 module system and TypeScript interfaces",
         "body": [
@@ -29,7 +26,6 @@
         "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
     "API Request": {
-        "key": "apiRequest",
         "prefix": "apiRequest",
         "body": [
             "export const ${1:functionName} = async (): Promise<ApiResponseData<${2:responseType}>> => {",
@@ -54,7 +50,6 @@
         "description": "Creates a TypeScript function for making an API request"
     },
     "API Request Promise": {
-        "key": "apiRequestPromise",
         "prefix": "apiRequestPromise",
         "body": [
             "${1:apiRequestName}(${2:parameters})",
@@ -74,7 +69,6 @@
         "description": "Creates an API request promise chain with error handling"
     },
     "Map Function": {
-        "key": "map",
         "prefix": "map",
         "body": [
             "${1:array}.map((${2:item}) => {",

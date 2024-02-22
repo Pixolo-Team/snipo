@@ -1,23 +1,98 @@
 {
   "name": "snipo",
-  "displayName": "snipo",
-  "description": "",
+  "displayName": "Snipo",
+  "description": "Snipo is a Visual Studio Code extension that provides a collection of snippets for various languages and frameworks such as React, Angular, CSS, etc.",
   "version": "0.0.1",
+  "publisher": "Pixolo",
+  "author": "Pixolo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pixolo-Team/snipo"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pixolo-Team/snipo/issues"
+  },
   "engines": {
     "vscode": "^1.86.0"
   },
   "categories": [
-    "Other"
+    "Snippets"
   ],
-  "activationEvents": [],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:typescriptReact",
+    "onLanguage:javascript",
+    "onLanguage:javascriptReact",
+    "onCommand:snippo.start",
+    "onStartupFinished"
+  ],
+  "icon": "icon.jpg",
   "main": "./out/extension.js",
+  "browser": "./out/extension.js",
+  "keywords": [
+    "snippets",
+    "react",
+    "redux",
+    "react-native",
+    "customizable",
+    "javascript",
+    "typescript"
+  ],
   "contributes": {
     "commands": [
       {
         "command": "snipo.start",
         "title": "Snipo"
       }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets.json"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "snipo.start",
+        "key": "alt+d",
+        "mac": "alt+d",
+        "when": "editorTextFocus"
+      }
     ]
+  },
+  "configuration": {
+    "title": "Snipo Configuration",
+    "properties": {
+      "snipo.settings.prettierEnabled": {
+        "type": "boolean",
+        "markdownDescription": "Enable Prettier integration with code generated from snippets.",
+        "default": false
+      },
+      "snipo.settings.languageScopes": {
+        "type": "string",
+        "markdownDescription": "Define the language scopes for which the snippets will be available.",
+        "default": "javascript,javascriptreact,typescript,typescriptreact"
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -28,14 +103,14 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
   }
 }

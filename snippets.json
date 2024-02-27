@@ -54,7 +54,7 @@
         "body": [
             "${1:apiRequestName}(${2:parameters})",
             "\t.then((response: ApiResponseData<${3:responseType}>) => {",
-            "\t\t// If the token is valid then Set the User",
+            "\t\t// Add comment here",
             "\t\tif (response.status) {",
             "\t\t\t$0",
             "\t\t} else {",

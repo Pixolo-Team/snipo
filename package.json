@@ -71,11 +71,11 @@
       },
       {
         "language": "css",
-        "path": "./snippets.json"
+        "path": "./css-snippets.json"
       },
       {
         "language": "scss",
-        "path": "./snippets.json"
+        "path": "./css-snippets.json"
       }
     ],
     "keybindings": [

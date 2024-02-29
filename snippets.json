@@ -6,14 +6,16 @@
             "    $0",
             "}, [${1:dependencies}]);"
         ],
-        "description": "Creates a useEffect hook"
+        "description": "Creates a useEffect hook",
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
     "Typescript UseState": {
         "prefix": "us",
         "body": [
             "const [${1:state}, set${2:State}] = useState<${3:Type}>(${4:initialState});"
         ],
-        "description": "Creates a useState hook"
+        "description": "Creates a useState hook",
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
     "Typescript React Arrow Function": {
         "prefix": "raf",
@@ -47,7 +49,8 @@
             "    }",
             "};"
         ],
-        "description": "Creates a TypeScript function for making an API request"
+        "description": "Creates a TypeScript function for making an API request",
+        "scope": "typescript"
     },
     "API Request Promise": {
         "prefix": "apiRequestPromise",
@@ -66,7 +69,8 @@
             "\t\tShowToast('Session Expired', ToastType.ERROR);",
             "\t});"
         ],
-        "description": "Creates an API request promise chain with error handling"
+        "description": "Creates an API request promise chain with error handling",
+        "scope": "typescript"
     },
     "Map Function": {
         "prefix": "map",
@@ -84,7 +88,8 @@
             "\t${2:// Your code here}",
             "}"
         ],
-        "description": "Creates an if statement"
+        "description": "Creates an if statement",
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
     "If-Else Statement": {
         "prefix": "ifelse",
@@ -95,7 +100,8 @@
             "\t${3:// Code to execute if condition is false}",
             "}"
         ],
-        "description": "Creates an if-else statement"
+        "description": "Creates an if-else statement",
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
     "Conditional Expression with Logical AND": {
         "prefix": "and",
@@ -104,21 +110,8 @@
             "\t${2:// Code to execute if condition is true}",
             ")}"
         ],
-        "description": "Creates a conditional expression with logical AND"
-    },
-    "CSS Keyframe": {
-        "prefix": "keyframe",
-        "body": [
-            "@keyframes ${1:keyframeName} {",
-            "\tfrom {",
-            "\t\t$0",
-            "\t}",
-            "\tto {",
-            "\t\t",
-            "\t}",
-            "}"
-        ],
-        "description": "Creates a CSS keyframe animation"
+        "description": "Creates a conditional expression with logical AND",
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
     "Enum": {
         "prefix": "enum",
@@ -127,7 +120,8 @@
             "\t$0",
             "}"
         ],
-        "description": "Creates an exported enum in TypeScript"
+        "description": "Creates an exported enum in TypeScript",
+        "scope": "typescript"
     },
     "Type": {
         "prefix": "type",
@@ -136,7 +130,8 @@
             "\t$0",
             "};"
         ],
-        "description": "Creates an exported type in TypeScript"
+        "description": "Creates an exported type in TypeScript",
+        "scope": "typescript"
     },
     "React Functional Component with Interface": {
         "prefix": "rfci",
@@ -165,36 +160,151 @@
             "",
             "export default ${1:name};"
         ],
-        "description": "Creates a React functional component with TypeScript interface and exports it"
+        "description": "Creates a React functional component with TypeScript interface and exports it",
+        "scope": "typescript,typescriptreact,javascript,javascriptreact"
     },
-    "Media Queries for Device Sizes": {
-        "prefix": "mediaQueries",
+    "Controller Function": {
+        "prefix": "cf",
         "body": [
-            "// Small laptops (1366 x 768)",
-            "@media only screen and (max-width: 1500px) {",
-            "\t$0",
-            "}",
+            "/** Add a comment */",
+            "const ${1:functionName} = async (req: Request, res: Response): Promise<void> => {",
+            "\ttry {",
+            "\t\t// Add a comment",
+            "\t\tconst ${2:variableId}: number = parseInt(req.params.${2});",
             "",
-            "// Ipad air",
-            "@media only screen and (max-width: 992px) {",
-            "\t",
-            "}",
+            "\t\t// Check if required parameters exist",
+            "\t\tif (!${2}) {",
+            "\t\t\tres.json(responseFormatter(ResponseCode.BAD_REQUEST, false, null, ResponseMessage.BAD_REQUEST));",
+            "\t\t\treturn;",
+            "\t\t}",
             "",
-            "// Ipad Mini",
-            "@media only screen and (max-width: 768px) {",
-            "\t",
-            "}",
+            "\t\t// Call the service function to ${3:write the action}",
+            "\t\tconst ${4:${1}Response} = await ${1}Service(${2});",
             "",
-            "// Mobile Phones",
-            "@media only screen and (max-width: 600px) {",
-            "\t",
-            "}",
+            "\t\tswitch (${4}.status_code) {",
+            "\t\t\tcase ResponseCode.SUCCESS:",
+            "\t\t\t\tres.json(",
+            "\t\t\t\t\tresponseFormatter(",
+            "\t\t\t\t\t\tResponseCode.SUCCESS,",
+            "\t\t\t\t\t\ttrue,",
+            "\t\t\t\t\t\t${4}.data,",
+            "\t\t\t\t\t\t\"${6:Write your message here.}\"",
+            "\t\t\t\t\t)",
+            "\t\t\t\t);",
+            "\t\t\t\tbreak;",
             "",
-            "// Small mobiles (iphone 5)",
-            "@media only screen and (max-width: 350px) {",
-            "\t",
-            "}"
+            "\t\t\tcase ResponseCode.NOT_FOUND:",
+            "\t\t\t\tres.json(",
+            "\t\t\t\t\tresponseFormatter(",
+            "\t\t\t\t\t\tResponseCode.NOT_FOUND,",
+            "\t\t\t\t\t\tfalse,",
+            "\t\t\t\t\t\tnull,",
+            "\t\t\t\t\t\t\"${7:Write your message here.}\"",
+            "\t\t\t\t\t)",
+            "\t\t\t\t);",
+            "\t\t\t\tbreak;",
+            "",
+            "\t\t\tdefault:",
+            "\t\t\t\tres.json(responseFormatter(ResponseCode.INTERNAL_SERVER_ERROR, false, null, ResponseMessage.INTERNAL_SERVER_ERROR));",
+            "\t\t}",
+            "\t} catch (error) {",
+            "\t\t// Handle other errors",
+            "\t\tres.json(responseFormatter(ResponseCode.INTERNAL_SERVER_ERROR, false, null, error.message));",
+            "\t}",
+            "};"
         ],
-        "description": "Creates media queries for various device sizes"
+        "description": "Controller Function Snippet",
+        "scope": "typescript"
+    },
+    "Service Function": {
+        "prefix": "sf",
+        "body": [
+            "/** Add a comment */",
+            "const ${1:serviceName}Service = async (",
+            "\t${2:variable}: ${3:type}",
+            "): Promise<ServiceResponseData<${4:Type}>> => {",
+            "\ttry {",
+            "\t\t// Add a comment",
+            "\t\tconst ${5:${1}Response} = await ${6:${1}Query}(${2});",
+            "",
+            "\t\t// Check if ${5} has a 'status' property or have no data",
+            "\t\tif (!${5}.status) {",
+            "\t\t\treturn {",
+            "\t\t\t\tstatus_code: ResponseCode.INTERNAL_SERVER_ERROR,",
+            "\t\t\t};",
+            "\t\t}",
+            "",
+            "\t\t// If ${6:dataName} are not there or is empty",
+            "\t\tif (${5}.data?.length === 0) {",
+            "\t\t\treturn {",
+            "\t\t\t\tstatus_code: ResponseCode.NOT_FOUND,",
+            "\t\t\t};",
+            "\t\t}",
+            "",
+            "\t\t// Use the utility function to format the data as per the response required",
+            "\t\tconst ${7:formattedData} = ${8:functionNameForFormattingData}(",
+            "\t\t\t${5}.data,",
+            "\t\t);",
+            "",
+            "\t\treturn {",
+            "\t\t\tdata: ${7},",
+            "\t\t\tstatus_code: ResponseCode.SUCCESS,",
+            "\t\t};",
+            "\t} catch (error) {",
+            "\t\treturn {",
+            "\t\t\tstatus_code: ResponseCode.INTERNAL_SERVER_ERROR,",
+            "\t\t};",
+            "\t}",
+            "};"
+        ],
+        "description": "Service Function Snippet",
+        "scope": "typescript"
+    },
+    "Query Function Mongodb": {
+        "prefix": "qf",
+        "body": [
+            "/** Add a comment */",
+            "const ${1:queryName}Query = async (",
+            "\t${2:variable}: ${3:datatype}",
+            "): Promise<QueryResponseData<${4:Type}>> => {",
+            "\ttry {",
+            "\t\t// Execute MongoDB query",
+            "\t\tconst ${5:${1}Result} = await ${6:Model}.find({ ${7:field}: ${2} }).exec();",
+            "",
+            "\t\t// Return the query results",
+            "\t\treturn {",
+            "\t\t\tdata: ${5},",
+            "\t\t\tstatus: true,",
+            "\t\t};",
+            "\t} catch (error) {",
+            "\t\tconsole.error('MongoDB Query Error:', error);",
+            "\t\t// Handle error appropriately",
+            "\t\treturn {",
+            "\t\t\tstatus: false,",
+            "\t\t\terror: error.message,",
+            "\t\t};",
+            "\t}",
+            "};"
+        ],
+        "description": "MongoDB Query Function Snippet",
+        "scope": "typescript"
+    },
+    "Router Post": {
+        "prefix": "rp",
+        "body": [
+            "// ${1:Add a Comment}",
+            "router.post(\"/${2:Add route.}\", ${3:controllerName}.${4:functionName});"
+        ],
+        "description": "Router-Post Snippet",
+        "scope": "typescript"
+    },
+    "Router Get": {
+        "prefix": "rg",
+        "body": [
+            "// ${1:Add a Comment}",
+            "router.get(\"/${2:Add route.}\", ${3:controllerName}.${4:functionName});"
+        ],
+        "description": "Router-Get Snippet",
+        "scope": "typescript"
     }
 }

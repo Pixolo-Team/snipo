@@ -1,0 +1,48 @@
+{
+    "CSS Keyframe": {
+        "prefix": "keyframe",
+        "body": [
+            "@keyframes ${1:keyframeName} {",
+            "\tfrom {",
+            "\t\t$0",
+            "\t}",
+            "\tto {",
+            "\t\t",
+            "\t}",
+            "}"
+        ],
+        "description": "Creates a SCSS keyframe animation",
+        "scope": "css,scss"
+    },
+    "Media Queries for Device Sizes": {
+        "prefix": "mediaQueries",
+        "body": [
+            "// Small laptops (1366 x 768)",
+            "@media only screen and (max-width: 1500px) {",
+            "\t$0",
+            "}",
+            "",
+            "// Ipad air",
+            "@media only screen and (max-width: 992px) {",
+            "\t",
+            "}",
+            "",
+            "// Ipad Mini",
+            "@media only screen and (max-width: 768px) {",
+            "\t",
+            "}",
+            "",
+            "// Mobile Phones",
+            "@media only screen and (max-width: 600px) {",
+            "\t",
+            "}",
+            "",
+            "// Small mobiles (iphone 5)",
+            "@media only screen and (max-width: 350px) {",
+            "\t",
+            "}"
+        ],
+        "description": "Creates SCSS media queries for various device sizes",
+        "scope": "css,scss"
+    }
+}

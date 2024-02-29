@@ -105,5 +105,96 @@
             ")}"
         ],
         "description": "Creates a conditional expression with logical AND"
+    },
+    "CSS Keyframe": {
+        "prefix": "keyframe",
+        "body": [
+            "@keyframes ${1:keyframeName} {",
+            "\tfrom {",
+            "\t\t$0",
+            "\t}",
+            "\tto {",
+            "\t\t",
+            "\t}",
+            "}"
+        ],
+        "description": "Creates a CSS keyframe animation"
+    },
+    "Enum": {
+        "prefix": "enum",
+        "body": [
+            "export enum ${1:enumName} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Creates an exported enum in TypeScript"
+    },
+    "Type": {
+        "prefix": "type",
+        "body": [
+            "export type ${1:typeName} = {",
+            "\t$0",
+            "};"
+        ],
+        "description": "Creates an exported type in TypeScript"
+    },
+    "React Functional Component with Interface": {
+        "prefix": "rfci",
+        "body": [
+            "interface ${1:name}Props {}",
+            "",
+            "/** ${2:comment} */",
+            "const ${1:name}: React.FC<${1:name}Props> = () => {",
+            "\t// Define Contexts",
+            "",
+            "\t// Define States",
+            "",
+            "\t// Define Refs",
+            "",
+            "\t// Helper Functions",
+            "",
+            "\t// Use Effect and Focus Effect",
+            "",
+            "\t// View starts here",
+            "\treturn (",
+            "\t\t<div>",
+            "\t\t\t<h1>${1:name}</h1>",
+            "\t\t</div>",
+            "\t);",
+            "};",
+            "",
+            "export default ${1:name};"
+        ],
+        "description": "Creates a React functional component with TypeScript interface and exports it"
+    },
+    "Media Queries for Device Sizes": {
+        "prefix": "mediaQueries",
+        "body": [
+            "// Small laptops (1366 x 768)",
+            "@media only screen and (max-width: 1500px) {",
+            "\t$0",
+            "}",
+            "",
+            "// Ipad air",
+            "@media only screen and (max-width: 992px) {",
+            "\t",
+            "}",
+            "",
+            "// Ipad Mini",
+            "@media only screen and (max-width: 768px) {",
+            "\t",
+            "}",
+            "",
+            "// Mobile Phones",
+            "@media only screen and (max-width: 600px) {",
+            "\t",
+            "}",
+            "",
+            "// Small mobiles (iphone 5)",
+            "@media only screen and (max-width: 350px) {",
+            "\t",
+            "}"
+        ],
+        "description": "Creates media queries for various device sizes"
     }
 }

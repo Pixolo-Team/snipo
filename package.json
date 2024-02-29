@@ -68,6 +68,14 @@
       {
         "language": "typescriptreact",
         "path": "./snippets.json"
+      },
+      {
+        "language": "css",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "scss",
+        "path": "./snippets.json"
       }
     ],
     "keybindings": [
@@ -90,7 +98,7 @@
       "snipo.settings.languageScopes": {
         "type": "string",
         "markdownDescription": "Define the language scopes for which the snippets will be available.",
-        "default": "javascript,javascriptreact,typescript,typescriptreact"
+        "default": "javascript,javascriptreact,typescript,typescriptreact,css,scss"
       }
     }
   },
